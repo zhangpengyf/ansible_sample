@@ -1,0 +1,8 @@
+[lbs]
+lbs1 index=1 ansible_ssh_host=172.16.3.152  name=lbs
+[sap]
+sap1 index=1 ansible_ssh_host=172.16.3.152  name=sap
+[mcs]
+mcs1 index=1 ansible_ssh_host=172.16.3.152  name=mcs
+[mps]
+mps1 index=1 ansible_ssh_host=172.16.3.152  name=mps

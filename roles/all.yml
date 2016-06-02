@@ -1,0 +1,6 @@
+---
+  - include: lbs.yml
+  - include: sap.yml
+  - include: mps.yml
+  - include: mcs.yml
+        

@@ -1,0 +1,5 @@
+---
+blitz_zookeeper: 172.16.3.152:2181
+blitz_monitor: influxdb|http|172.16.16.29|8086|user|password|blitz
+blitz_monitor_interval: 10
+blitz_reclone_git: True

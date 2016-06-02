@@ -1,0 +1,22 @@
+---
+- name: Check service {{ name }} exists
+  stat: path=/etc/init.d/{{ name }}
+  register: service_status
+- name: Stop service {{ name }}
+  service: name={{ name }} state=stopped
+  when: service_status.stat.exists
+  register: service_stopped
+- name: Clear git repo if need
+  file: path=~/blitz/{{ name }} state=absent
+  when: blitz_reclone_git
+- name: Pull {{ name }} package
+  git: repo={{ blitz_git }} dest=~/blitz/{{ name }}/
+- name: Copy properties
+  template: src=files/blitz.properties dest=~/blitz/{{ name }}/
+- name: Change install mode
+  file: path=~/blitz/{{ name }}/install state=file mode=a+x
+- name: Install if no service {{ name }}
+  shell: '~/blitz/{{ name }}/install {{ name }}'
+  when: service_status.stat.exists == False
+- name: Start service {{ name }}
+  service: name={{ name }} state=started
