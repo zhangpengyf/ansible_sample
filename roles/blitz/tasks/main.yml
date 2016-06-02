@@ -10,7 +10,7 @@
   file: path=~/blitz/{{ name }} state=absent
   when: blitz_reclone_git
 - name: Pull {{ name }} package
-  git: repo={{ blitz_git }} dest=~/blitz/{{ name }}/
+  git: repo={{ blitz_git }} dest=~/blitz/{{ name }}/ version={{ checkout_version }}
 - name: Copy properties
   template: src=files/blitz.properties dest=~/blitz/{{ name }}/
 - name: Change install mode

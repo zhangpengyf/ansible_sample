@@ -4,5 +4,6 @@
   remote_user: root
   roles:
   - {role: blitz,
-     blitz_git: "http://172.16.16.29/deploy/blitz_lbs.git"}
+     blitz_git: "http://172.16.16.29/deploy/blitz_lbs.git",
+     checkout_version: master}
  
